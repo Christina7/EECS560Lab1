@@ -6,7 +6,7 @@ list::list(){
 	head = NULL;
 }
 
-void list::insert(double x, node *L){
+void list::insert(double x, node *&L){
 	if (L == NULL){
 		L = new node;
 		L->data = x;
@@ -38,16 +38,17 @@ bool list::isEmpty(){
 	}
 }
 
-void list::erase(double x, node *L){
+void list::erase(double x, node *&L){
 
 }
 
 void list::print(){
 	node *temp = head;
 	while (temp->next != NULL){
-		cout << temp->data;
+		cout << temp->data << " ";
 		temp = temp->next;
 	}
+	cout << temp->data << endl;
 
 	/*
 	if (L->next == NULL){
@@ -85,7 +86,7 @@ void list::build(ifstream& file){
 		insert(item, head);
 	}
 }
-/*
-void list::setNext(node* num){
-	head->next = num;
-}*/
+
+node*& list::getHead(){
+	return head;
+}

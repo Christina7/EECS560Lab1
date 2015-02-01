@@ -16,6 +16,10 @@ int main(){
 
 	bool isE = l.isEmpty();
 	
+	l.insert(42, l.getHead());
+	l.print();
+	l.insert(0, l.getHead());
+	l.print();
 	cout << "4 \n";
 	cout << isE;
 
