@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 struct node{
@@ -17,13 +18,13 @@ class list{
 
 	public:
 		list();
-		void insert(double x, node L);
+		void insert(double x, node *L);
 		bool isEmpty();
-		void erase(double x, node L);
+		void erase(double x, node *L);
 		void print();
-		void find(double x, node L);
-	
-		//void setHead(double num);
+		node* find(double x, node *L);
+		void build(ifstream& file);
+
 		//void setNext(node* num);
 };
 
