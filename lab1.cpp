@@ -18,10 +18,10 @@ int main(){
 	
 	l.insert(42, l.getHead());
 	l.print();
-	l.insert(0, l.getHead());
+	l.erase(0, l.getHead());
 	l.print();
 	cout << "4 \n";
 	cout << isE;
-
+	fileName.close();
 return 0;
 }

@@ -15,6 +15,7 @@ struct node{
 class list{
 	private:
 		node *head;
+		bool flag;
 
 	public:
 		list();
@@ -22,7 +23,7 @@ class list{
 		bool isEmpty();
 		void erase(double x, node *&L);
 		void print();
-		node* find(double x, node *L);
+		node*& find(double x, node *&L);
 		void build(ifstream& file);
 		node*& getHead();
 };
