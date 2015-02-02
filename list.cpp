@@ -15,8 +15,8 @@ void list::insert(double x, node *&L){
 		L->next = NULL;
 	}
 	else{
-		if (L->data == x){	//if current node is not null and is the number being inserted do nothing
-
+		if (L->data == x){	//if current node is not null and is the number being inserted 
+			cout <<  "Number already in list \n";
 		}
 		else{	//if current node is not null, last node with data, and not number being inserted, then adds new node with data
 			if (L->next == NULL){
@@ -44,12 +44,18 @@ bool list::isEmpty(){
 //removes node from list if there
 void list::erase(double x, node *&L){
 	node *temp = find(x, L);
-	if (flag = false){
+	if ((temp == NULL)&&(flag == false)) {
 		cout << "Number not in List \n";
 	}
 	else{
 		if (temp->next == NULL){	//node is last in list
-			temp = NULL;
+			if (flag == true){ // last in list and number being found
+				head = NULL;
+			}
+			else{ // last in list and not number being found
+			cout << "Number not in List \n";
+			}
+				
 		}
 		else{
 			if (temp->data == x){	//node returned is the node
@@ -70,17 +76,25 @@ void list::erase(double x, node *&L){
 //prints current list
 void list::print(){
 	node *temp = head;	//new node pointing to head
-	while (temp->next != NULL){		//while next node isn't null print data
-		cout << temp->data << " ";
-		temp = temp->next;
+	if (temp == NULL){
+		cout << "Empty List \n";
+		}
+	else{
+		while (temp->next != NULL){		//while next node isn't null print data
+			cout << temp->data << " ";
+			temp = temp->next;
+		}
+		cout << temp->data << endl;	//print last node
 	}
-	cout << temp->data << endl;	//print last node
 }
 
 //finds a node in list, returns the node or the node pointing to it
 node*& list::find(double x, node *&L){
+	//node *notThere;
+	//notThere = NULL;
 	if (L == NULL){ //first node is null
 		flag = false;
+		return L;//
 	}
 	else{
 		if (L->next == NULL){	//Node is last in list
@@ -90,6 +104,7 @@ node*& list::find(double x, node *&L){
 			}
 			else{	//Node is last in list and not number being found
 				flag = false;
+				return L;//
 			}
 		}
 		else{
