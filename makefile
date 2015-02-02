@@ -1,13 +1,11 @@
-all: lab1
-
 lab1: lab1.o list.o
-	g++ lab1.o list.o -o 1lab
+	g++ -g -std=c++11 lab1.o list.o -o lab1
 
-lab1.o: lab1.cpp
-	g++ -c lab1.cpp
+lab1.o: lab1.cpp list.o
+	g++ -c -g -std=c++11 lab1.cpp
 
-list.o: list.cpp
-	g++ -c list.cpp
+list.o: list.cpp 
+	g++ -c -g -std=c++11 list.cpp
 
 clean:
-	rm -rf *o lab1
+	rm -f *~ *.o
