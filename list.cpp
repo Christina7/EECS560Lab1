@@ -7,6 +7,17 @@ list::list(){
 	flag = false;
 }
 
+list::~list(){
+	node *temp = head;
+	while (temp != NULL){
+		node *temp2 = temp->next;
+		delete temp;
+		temp = temp2;
+	}
+	head = NULL;
+	temp = NULL;
+}
+
 //adds node to end of list if it is not already in the list
 void list::insert(double x, node *&L){
 	if (L == NULL){	//if current node is NULL adds new node with data

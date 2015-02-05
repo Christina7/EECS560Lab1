@@ -19,6 +19,7 @@ class list{
 
 	public:
 		list();
+		~list();
 		void insert(double x, node *&L);
 		bool isEmpty();
 		void erase(double x, node *&L);
